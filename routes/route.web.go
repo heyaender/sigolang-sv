@@ -1,8 +1,8 @@
 package routes
 
 import (
-	"sigolang-sv/app/http/controllers"
-	"sigolang-sv/app/http/controllers/customers"
+	"sigolang-sv/app/controllers"
+	"sigolang-sv/app/controllers/customers"
 
 	"github.com/gorilla/mux"
 )
