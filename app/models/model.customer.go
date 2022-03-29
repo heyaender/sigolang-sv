@@ -1,20 +1,20 @@
 package models
 
 import (
-	"sigolang-sv/database"
+	"sigolang-sv/databases"
 	"sigolang-sv/schemas"
 
 	"gorm.io/gorm"
 )
 
 func CreateCustomer(customer schemas.Customer) *gorm.DB {
-	result := database.DB.Create(&customer)
+	result := databases.DB.Create(&customer)
 	return result
 }
 
 func GetAllCustomer(limit int, offset int) []schemas.Customer {
 	customers := []schemas.Customer{}
-	database.DB.
+	databases.DB.
 		Select("id, name, age").
 		Limit(limit).
 		Offset(offset).
@@ -24,7 +24,7 @@ func GetAllCustomer(limit int, offset int) []schemas.Customer {
 
 func GetCustomerByID(CustomerID string) (schemas.Customer, *gorm.DB) {
 	var customer schemas.Customer
-	result := database.DB.
+	result := databases.DB.
 		Select("customers.id, customers.name, customers.age, Profile.*").
 		Joins("Profile").
 		Where("customers.id = ?", CustomerID).

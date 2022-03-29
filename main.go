@@ -1,11 +1,11 @@
 package main
 
 import (
-	"sigolang-sv/database"
+	"sigolang-sv/databases"
 	"sigolang-sv/routes"
 )
 
 func main() {
-	database.MySQLConnect()
+	databases.MySQLConnect()
 	routes.LaunchServer()
 }
